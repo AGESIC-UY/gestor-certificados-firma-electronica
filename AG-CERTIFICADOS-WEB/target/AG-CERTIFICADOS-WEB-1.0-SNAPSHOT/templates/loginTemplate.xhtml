@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ice="http://www.icesoft.com/icefaces/component"
+       xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="/xmlhttp/css/xp/xp.css" rel="stylesheet" type="text/css"/>
+
+
+        <link rel="stylesheet" href="./../css/bootstrap.css"/>
+        <link rel="stylesheet" href="./../css/bootstrap-theme.css"/>
+        <script src="./../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./../css/bootstrap.css"/>
+        <link rel="stylesheet" href="./../css/cert1.css"/>
+        <title>MIEM - Directorio de Empresas Industriales</title>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div id="top">
+                <ui:insert name="top">
+                    <div id="top" class="row">
+                        <div class="col-sm-6 col-md-7"><img alt="Dirección Nacional de Industrias" src="../img/cabezal.jpg" class="logo img-responsive"/></div>
+                        <div class="col-sm-6 col-md-5"><h1>SISTEMA DE REGISTRO DE EMPRESAS<br/>SISTEMA EN DESARROLLO</h1></div>
+                        <div class="col-sm-12 no-padding" id="menu">
+                            <ui:include src="./../fragmentos/menuPublico.xhtml" />
+                        </div>
+                    </div>
+
+
+
+                </ui:insert>
+            </div>
+
+
+
+         <div id="content" class="fondo-blanco row">
+                <div class="col-sm-12 contenido no-padding" >
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+
+                <div class="container">
+                    <div class="texto-foot izq">
+                        <span id="footer_dir_name">Ministerio de Industria, Energía y Minería</span>
+                        <span id="footer_dir_add">Dirección: Paysandú esq. Libertador Brig. Gral. Lavalleja, 4o. piso</span>
+                        <span id="footer_dir_tel">Teléfono: 2900 0231 / 33</span>
+                        <span id="footer_dir_fax">Fax: 2900 0291</span>
+                        <span id="footer_dir_mail"><a href="/web/guest/contacto" tabindex="160">Contáctenos</a></span>
+                    </div>
+                </div>
+
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

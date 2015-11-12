@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:form id="form_gen">
+        <ice:panelGroup styleClass="form-horizontal" style="margin-top: 10px">
+            <ice:panelGroup styleClass="form-group">
+                <h:outputLabel styleClass="control-label col-sm-3" value="Ingrese el código del certificado"/>
+                <ice:panelGroup styleClass="col-sm-9">
+                    <ice:inputText id="codigoInput" value="#{validarCertificadoMB.codigo}"/>
+                </ice:panelGroup>
+            </ice:panelGroup>    
+            <ice:panelGroup id="panelCaptcha" styleClass="form-group">
+                <ice:graphicImage  id="image_captcha"  value="/CaptchaServlet?id=#{validarCertificadoMB.now}"/> 
+                <h:outputLabel styleClass="control-label col-sm-3" value="Ingrese el texto de la imágen"/>
+                <ice:panelGroup styleClass="col-sm-offset-3" style="margin-top:10px;">
+                    <ice:inputText id="challengeCaptchaInput" value="#{validarCertificadoMB.challengeCaptcha}"/>
+                </ice:panelGroup>
+            </ice:panelGroup>    
+            <ice:panelGroup styleClass="col-sm-offset-3">
+                <ice:messages/>
+                <ice:commandButton partialSubmit="true" action="#{validarCertificadoMB.validarCertificadoAction()}"  styleClass="btn btn-primary botonGuardar" value="#{labels.validar}"/>
+            </ice:panelGroup>
+        </ice:panelGroup>
+
+        <ice:panelGroup styleClass="mensajeValidacion valido" id="formularioDatosValido1" rendered="#{validarCertificadoMB.validar and validarCertificadoMB.certificadoValido}">
+            <ice:outputLabel value="Certificado Válido"></ice:outputLabel>
+            <ice:outputResource 
+                label="Descargar Certificado"
+                type="link"
+                mimeType="application/pdf" 
+                resource="#{validarCertificadoMB.resource}">
+            </ice:outputResource>
+        </ice:panelGroup>
+        <ice:panelGroup styleClass="mensajeValidacion invalido" id="formularioDatosNoValido1" rendered="#{validarCertificadoMB.validar and not validarCertificadoMB.certificadoValido}">
+            <ice:outputLabel value="Certificado no Válido"></ice:outputLabel>
+        </ice:panelGroup>
+    </ice:form>
+
+</ui:composition>

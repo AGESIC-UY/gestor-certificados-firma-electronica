@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://ws.firma.agesic.gub.uy/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.firma.agesic.gub.uy/">
+
+<xs:element name="firmarDocumentos" type="tns:firmarDocumentos" />
+
+<xs:element name="firmarDocumentosResponse" type="tns:firmarDocumentosResponse" />
+
+<xs:element name="obtenerDocumentosFirmados" type="tns:obtenerDocumentosFirmados" />
+
+<xs:element name="obtenerDocumentosFirmadosResponse" type="tns:obtenerDocumentosFirmadosResponse" />
+
+<xs:complexType name="firmarDocumentos">
+<xs:sequence>
+<xs:element name="tipo_firma" type="xs:string" form="qualified" minOccurs="0" />
+<xs:element name="documentos" type="xs:base64Binary" form="qualified" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="firmarDocumentosResponse">
+<xs:sequence>
+<xs:element name="respuesta" type="xs:string" form="qualified" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerDocumentosFirmados">
+<xs:sequence>
+<xs:element name="id_transaccion" type="xs:string" form="qualified" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerDocumentosFirmadosResponse">
+<xs:sequence>
+<xs:element name="respuesta" type="tns:dataDocumento" form="qualified" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataDocumento">
+<xs:sequence>
+<xs:element name="cert" type="xs:base64Binary" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="doc" type="xs:base64Binary" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="valid" type="xs:boolean" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

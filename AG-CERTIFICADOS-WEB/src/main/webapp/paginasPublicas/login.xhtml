@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../templates/loginTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+
+    <ui:define name="content">
+        <form method="post" action="j_security_check" name="frmLogin">
+
+
+            <h:panelGrid  >
+
+                <h:panelGrid id="panel" styleClass="panelLogin" columns="6" border="0" rowClasses="fila0,fila1">
+                    <h:outputLabel value="Código de usuario:" />
+                    <input type="text" name="j_username" size="25" class="textoMedio"/>
+
+                    <h:outputLabel value="Contraseña:" />
+                    <input type="password" size="15" name="j_password"  class="textoMedio"/>
+                    <input type="submit" value="Ingresar" class="boton principal ingresar"/>   
+                    <ice:panelGroup styleClass="recordatorioContrasenia">
+                        <ace:linkButton value="#{labels.recordarContrasenia}" />
+                        <ace:linkButton value="#{labels.desbloquearCuenta}"/>
+                    </ice:panelGroup>
+                </h:panelGrid>
+            </h:panelGrid>
+        </form>
+        <h:form>
+            <ice:panelGroup styleClass="col-sm-4 columnasLogin">
+                <ace:pushButton styleClass="botonInicioEmpresasIndustriales" action="#{inicioMB.redirigirInicio('solDirectorio')}"	/>
+                <ace:linkButton styleClass="subtitulo " value="#{labels.empresasIndustriales}"  action="#{inicioMB.redirigirInicio('solDirectorio')}" />    
+                <ice:panelGroup   styleClass="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                </ice:panelGroup>
+            </ice:panelGroup>
+
+            <ice:panelGroup styleClass="col-sm-4 columnasLogin">
+                <ace:pushButton styleClass="botonInicioEmpresasVestimenta"  action="#{inicioMB.redirigirInicio('solRegistroEmpresas')}"	/>
+                <ace:linkButton styleClass="subtitulo " value="#{labels.registroEmpresasVestimenta}"  action="#{inicioMB.redirigirInicio('solRegistroEmpresas')}"/>   
+                <ice:panelGroup styleClass="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</ice:panelGroup>
+            </ice:panelGroup>
+            <ice:panelGroup styleClass="col-sm-4 columnasLogin">
+                <ace:pushButton styleClass="botonInicioTrabajadoresVestimenta" action="#{inicioMB.redirigirInicio('solRegistroTrabajadores')}"	/>
+                <ace:linkButton styleClass="subtitulo " value="#{labels.trabajadoresVestimenta}" action="#{inicioMB.redirigirInicio('solRegistroTrabajadores')}"/>   
+                <ice:panelGroup styleClass="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</ice:panelGroup>
+            </ice:panelGroup>
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

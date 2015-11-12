@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <h:form id="form_gen">
+        <ice:panelGroup id="paneContenidoNuevo" rendered="#{not nuevoCertificadoMB.accionesPosteriores}">
+            <ice:panelGroup  id="pnlGrpBuqueda">
+                <ice:panelGroup id="cabezalPagina" styleClass="cabezalPagina row">
+                    <h2 id="tituloPagina">#{labels.pnlTituloNuevoCertificadoPagina}</h2>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            <ice:panelGroup styleClass="form-horizontal" style="margin-top: 10px">
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel for="ordenSelectOrden" styleClass="control-label col-sm-3" value="#{labels.tipoCertificadoSeleccion}"/>
+                    <ice:panelGroup styleClass="col-sm-9">
+                        <ice:selectOneMenu id="ordenSelectOrden" styleClass="form-control" partialSubmit="true"  value="#{nuevoCertificadoMB.tipoCertificadoSelected}"  valueChangeListener="#{nuevoCertificadoMB.tipoCertificadoValueChange}">
+                            <f:selectItems value="#{inicioMB.tipoCertificadosSI}"/>
+                        </ice:selectOneMenu>
+                    </ice:panelGroup>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            
+            <ice:panelGroup  id="formularioDatos" binding="#{nuevoCertificadoMB.formularioDatos}">
+            </ice:panelGroup>
+
+            <ice:panelGroup styleClass="form-horizontal" id="formularioAcciones">
+                <ice:panelGroup styleClass="col-sm-offset-3">
+                    <ace:messages id="messagesAcciones"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="panelBotones col-sm-9 col-sm-offset-3">
+                        <h:commandButton action="#{nuevoCertificadoMB.continuar()}" rendered="#{nuevoCertificadoMB.certificadoSelecionado!= null}" styleClass="btn btn-primary botonGuardar" value="#{labels.continuar}"/>
+                </ice:panelGroup>
+            </ice:panelGroup>
+        </ice:panelGroup>
+
+        <ice:panelGroup id="paneContenidoAcciones" rendered="#{nuevoCertificadoMB.accionesPosteriores}">
+            <ice:panelGroup id="cabezalPagina1" styleClass="cabezalPagina row">
+                  <h2 id="tituloPagina">Selecciones una de las siguientes opciones:</h2>
+            </ice:panelGroup>
+            <ice:panelGroup styleClass="row" id="formularioAccionesPosterior">
+                <ice:panelGroup styleClass="col-sm-12">
+                    <ace:messages id="messagesAccionesPost"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="col-sm-6 col-sm-offset-3">
+                    <ice:panelGroup  styleClass="panelBotones">
+                            <h:commandButton action="#{nuevoCertificadoMB.imprimir()}" rendered="#{nuevoCertificadoMB.certificadoSelecionado!= null}" styleClass="btn btn-primary botonGrande imprimir" value="#{labels.imprimir}"/>
+                            <h:commandButton action="#{nuevoCertificadoMB.enviarPorEmail()}" rendered="#{nuevoCertificadoMB.certificadoSelecionado!= null}" styleClass="btn btn-primary botonGrande mail" value="#{labels.enviarEmail}"/>                        
+                    </ice:panelGroup>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="panelBotones centrado col-sm-12">
+                      <h:commandButton action="#{nuevoCertificadoMB.continuarAccionPosterior()}" rendered="#{nuevoCertificadoMB.certificadoSelecionado!= null}" styleClass="btn btn-primary botonGuardar" value="#{labels.continuar}"/>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            
+        </ice:panelGroup>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,1720 @@
+/*GENERALES
+*/html,body{
+	height:100%;
+	background-color:#999999;
+}
+.container{
+}
+.container:after{
+}
+
+a:link, a:visited{
+	color: #1C639B;
+	font-weight: normal;
+	text-decoration: underline;
+}
+a:link:hover, a:visited:hover {
+	color: #666;
+	font-weight: normal;
+	text-decoration: none;
+	text-decoration: underline;
+}
+.no-padding{
+	padding: 0px !important;
+}
+.no-margin{
+	margin: 0px !important;
+}
+.margen-sup{
+	margin-top: 20px;
+}
+.fondo-blanco {
+	background-color: #FFFFFF;
+	box-shadow: 0 1px 4px -1px #666;
+	margin-bottom:10px;
+}
+.ui-corner-all {
+	border-radius: 6px;
+}
+.ui-inputfield {
+	padding: 5px 10px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: none;
+	background: none;
+	font-weight: normal;
+	color: #333333;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	border: none;
+	background: none;
+	font-weight: normal;
+	color: #333333;
+}
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield, input, select, textarea {
+	background: #cce5ed;
+	background: #FFFFFF;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #666;
+	border: 1px solid #b7b9bd;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+.ui-inputfield:hover, .ui-widget-content .ui-inputfield:hover, .ui-widget-header .ui-inputfield :hover, input:hover, select:hover, textarea:hover, .ui-inputfield:focus, .ui-widget-content .ui-inputfield:focus, .ui-widget-header .ui-inputfield:focus, input:focus, select:focus, textarea:focus{
+	background: #DFEFF4;
+}
+/*span.iceOutTxt { texto de formulario cuando es solo lectura
+	color: #005f7a;
+}*/
+table {
+	width: 100%;
+	border: 1px solid #ccc;
+	margin-top:20px;
+	float: left;
+}
+td {
+	padding: 0;
+}
+.textoCorto, .textoCorto select, .textoCorto input, .textoCorto textarea{
+	width: 80px !important;
+}
+.textoMedio, .textoMedio select, .textoMedio input, .textoMedio textarea{
+	width: 150px !important;
+}
+.textoLargo, .textoLargo select, .textoLargo input, .textoLargo textarea{
+	width: 500px !important;
+}
+.ui-widget-content {
+	background: #F5F5F5;
+	box-shadow: none;
+	border: none;
+	padding:5px 15px;
+	margin-bottom: 20px;
+	color:#333;
+	font-family: Arial,sans-serif;
+	width:auto;
+}
+
+ h3{
+	padding:0 0 8px 0;
+ 	color:#333;
+	font-weight:bold;
+	border-bottom: 1px solid #ccc; 
+	width:100%;
+	font-size:15px;
+	margin-bottom:20px;
+
+	clear: both;
+}
+.fecha input {
+	width: 150px !important;
+	margin-right: 10px !important;
+}
+.ui-datepicker{
+	padding:10px;
+}
+.ui-datepicker td a.ui-state-default{
+	color: #008fb4;
+}
+.ui-datepicker td a.ui-state-hover{
+	color: #005f7a;
+}
+.ui-datepicker td a.ui-state-highlight {
+	color: #333333;
+	padding:0;
+	font-weight:bold;
+}
+.ui-datepicker .ui-datepicker-title .ui-datepicker-month {
+	margin: 0 5px 0 0;
+	width: 47%;
+}
+.subtitulo, .resultadoBusqueda {
+	font-size: 18px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	display: block;
+}
+.centrarDato{
+	text-align: center;
+}
+
+
+/*CABEZAL*/
+
+#top {
+	background-color: #f5f5f5;
+	margin-bottom:20px;
+	height: 50px;
+}
+#top img{
+	margin-top:9px;
+}
+/*#menu{
+	background: #008fb4;  Old browsers 
+	 IE9 SVG, needs conditional override of 'filter' to 'none' 
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwOGZiNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDdlYTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #008fb4 0%, #007ea3 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#008fb4), color-stop(100%,#007ea3));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top,  #008fb4 0%,#007ea3 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top,  #008fb4 0%,#007ea3 100%);  Opera 11.10+ 
+	background: -ms-linear-gradient(top,  #008fb4 0%,#007ea3 100%);  IE10+ 
+	background: linear-gradient(to bottom,  #008fb4 0%,#007ea3 100%);  W3C 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008fb4', endColorstr='#007ea3',GradientType=0 );  IE6-8 
+	min-height: 42px;
+}*/
+.wijmo-wijmenu-horizontal{
+	border: none;
+	background: none;
+	padding:0;
+}
+/*.wijmo-wijmenu .ui-state-default a {link de la barra de men?
+	border: none;
+	border-radius:0;
+	padding: 13px 25px;
+	border-bottom: 1px solid transparent;
+}*/
+/*hover del link de la barra de men?*/
+.wijmo-wijmenu a.ui-state-default:hover, .wijmo-wijmenu a.ui-state-default:active, .wijmo-wijmenu a.ui-state-hover:link, .wijmo-wijmenu a.ui-state-hover:visited, .wijmo-wijmenu a.ui-state-hover:hover, .wijmo-wijmenu a.ui-state-hover:active, .wijmo-wijmenu a.ui-state-active:link, .wijmo-wijmenu a.ui-state-active:visited, .wijmo-wijmenu a.ui-state-active:hover, .wijmo-wijmenu a.ui-state-active:active {
+	background: #005f7a;
+	border: none;
+	border-bottom: 1px solid #005f7a;
+}
+.wijmo-wijmenu-parent a.ui-state-active:link, .wijmo-wijmenu-parent a.ui-state-hover:link{
+	border-bottom: 1px solid #008fb4;
+}
+.wijmo-wijmenu .wijmo-wijmenu-list .wijmo-wijmenu-item {
+	margin:0;
+}
+.wijmo-wijmenu .ui-state-default .ui-icon {
+	background-image: url("../img/ui-icons_ffffff_256x240.png");
+	float: right;
+}
+.wijmo-wijmenu .ui-state-default .wijmo-wijmenu-text .ui-icon {
+	float: left;
+}
+ .wijmo-wijmenu .ui-state-default a.ui-state-active .ui-icon{
+	background-image: url("../img/ui-icons_ffffff_256x240.png");
+}
+.wijmo-wijmenu-text{
+	color:#333;
+}
+/*.wijmo-wijmenu .wijmo-wijmenu-parent .wijmo-wijmenu-child {conjunto menu desplegable
+	width: auto;
+	padding: 0;
+	background: #005f7a;
+	border-radius: 0;
+	box-shadow: 0 1px 4px -1px #666;
+	border:0;
+}
+.wijmo-wijmenu .wijmo-wijmenu-parent .wijmo-wijmenu-child .wijmo-wijmenu-child{conjunto menu desplegable tercer nivel
+	border-left: 1px solid #008fb4;
+}*/
+/*.wijmo-wijmenu-horizontal .wijmo-wijmenu-child .wijmo-wijmenu-link{link del menu desplegable
+	width: 100%;
+	border-bottom: 1px solid #008fb4;
+}*/
+hover de cada item del menu desplegable
+.wijmo-wijmenu-child  a.ui-state-default:hover, .wijmo-wijmenu-child  a.ui-state-default:active, .wijmo-wijmenu-child  a.ui-state-hover:link, .wijmo-wijmenu-child  a.ui-state-hover:visited, .wijmo-wijmenu-child  a.ui-state-hover:hover, .wijmo-wijmenu-child  a.ui-state-hover:active, .wijmo-wijmenu-child  a.ui-state-active:link, .wijmo-wijmenu-child  a.ui-state-active:visited, .wijmo-wijmenu-child  a.ui-state-active:hover, .wijmo-wijmenu-child  a.ui-state-active:active{
+	background: #008fb4;
+	border-bottom: 1px solid #008fb4;
+}
+.logo{
+	margin:13px;
+}
+h1{
+	font-size: 18px;
+	font-weight: bold;
+	color: #1C639B;
+	margin-top: 15px;
+	text-align: right;
+}
+
+BARRA USUARIO
+#infoUsuario{
+	margin-bottom: 10px;
+	font-size: 13px;
+}
+#infoUsuario form{
+	margin-top: 14px;
+	width:100%;
+}
+#infoUsuario form a{
+	float: right;
+	padding-left: 10px;
+	margin-left: 10px;
+	border-left: 1px solid #ccc;
+}
+.iceOutConStat {
+	float: left;
+}
+#infoUsuario form>span {
+	float: right;
+	margin: 0 0 0 0;
+	font-weight:bold;
+}
+#infoUsuario form>label {
+	float: right;
+	margin: 0 5px 0 0;
+
+}
+.salir {
+	float: right;
+}
+.salir .yui-button button span{
+	padding-left: 0px;
+}
+.salir .yui-button button{
+	margin-bottom: 0px;
+	text-align: right;
+	background: url("../img/salir.png") no-repeat right center;
+	padding: 0 17px 0 22px;
+	border-left: 1px solid #005f7a;
+	margin-left: 17px;
+	background-size: auto 14px;
+	border-radius: 0;
+	color: #008fb4;
+}
+.salir:hover .yui-button button{
+	background: url("../img/salir-hover.png") no-repeat right center;
+	background-size: auto 14px;
+	color: #005f7a;
+	border-left: 1px solid #005f7a;
+}
+.pass {
+	float: right;
+	padding:0;
+}
+.pass .yui-button a{
+	margin-bottom: 0px;
+	text-align: right;
+	background: url("../img/pass.png") no-repeat right center;
+	padding: 0 17px 0 22px;
+	border-left: 1px solid #005f7a;
+	margin-left: 17px;
+	background-size: auto 14px;
+	border-radius: 0;
+	color: #008fb4;
+	text-transform: uppercase;
+	text-decoration: none !important;
+}
+.pass .yui-button a:hover{
+	background: url("../img/pass-hover.png") no-repeat right center;
+	background-size: auto 14px;
+	color: #005f7a;
+	border-left: 1px solid #005f7a;
+}
+
+/*CONTENIDO*/
+.contenido{
+	background-color: #f5f5f5;
+	border-radius: 6px;
+	margin-bottom: 25px;
+	min-height: 400px;
+	padding-bottom: 25px;
+}
+
+.ui-widget{
+	font-family: Arial,sans-serif;
+	font-size: 1em;
+}
+.tituloPagina{
+	font-size: 24px;
+	line-height: 30px;
+	color:#005f7a;
+	font-weight:normal !important;
+	text-transform: uppercase;
+	padding-left: 35px;
+	background-repeat: no-repeat;
+	margin-bottom: 30px;
+	background-image: url("../img/titulo.png");
+	background-size: 17px;
+	background-position: left center;
+	float:left;
+}
+.tituloVestimenta{
+	background-image: url("../img/vestimenta.png");
+	background-size: 40px;
+	background-position: left top;
+	padding-left: 45px;
+}
+.tituloIndustrial{
+	background-image: url("../img/industrial.png");
+	background-size: 40px;
+	background-position: left top;
+	padding-left: 45px;
+}
+.tituloTrabajador{
+	background-image: url("../img/trabajador.png");
+	background-size: 40px;
+	background-position: left top;
+	padding-left: 45px;
+}
+.tituloPagina label{
+	font-weight: normal;
+}
+.panelLogin .fila0>td{
+	padding-right:0;
+	padding-left:20px;
+}
+.panelLogin label{
+	margin:0;
+}
+.panelLogin input{
+	margin:0;
+}
+.panelLogin input.boton.principal{
+	margin-right:10px;
+}
+.registrado {
+	background: url("../img/salir.png") no-repeat right center;
+	padding: 0 20px 0 10px;
+	background-size: auto 14px;
+	color: #008fb4;
+}
+.columnasLogin {
+	padding-top: 20px;
+	padding-bottom: 25px;
+}
+.accesosDirectos {
+	margin: auto;
+	box-shadow: 0 1px 6px -1px #666;
+	border-radius: 100px;
+}
+.columnasLogin .subtitulo{
+	text-align: center;
+	margin: 10px 20px;
+}
+.bajada {
+	padding: 0 25px;
+	text-align: justify;
+}
+.panelBotonAgregar {
+	overflow: hidden;
+	width: auto;
+	float: right;
+}
+.panelBotonAgregar div{
+	text-align: right;
+}
+.columna0 { width: 30%; max-width: 30%; }
+.obligatorio:after { content: " *"; color:#007ea3; font-size:18px; line-height: 21px; }
+/*.ui-datatable-odd {
+    background-color:#f3f9fb !important;
+    background-position-y: -1400px;  IE7 hack 
+}
+.ui-datatable-even {
+    background-color:#FFFFFF !important;
+    background-position-y: -1400px;  IE7 hack 
+}
+.fila0, .formularioRow1  {
+    background-color:#f3f9fb !important;
+    background-position-y: -1400px;  IE7 hack 
+}
+.fila1, .formularioRow2  {
+    background-color:#FFFFFF !important;
+    background-position-y: -1400px;  IE7 hack 
+}
+.fila0>td, .formularioRow1>td ,.fila1>td, .formularioRow2>td {
+	padding:15px;
+}*/
+.tablaCondensada .fila0>td, .tablaCondensada .formularioRow1>td, .tablaCondensada .fila1>td, .tablaCondensada .formularioRow2>td {
+	padding:5px 10px;
+}
+
+label{
+    /*margin-right: 15px;*/
+}
+input.ui-inputfield, select.ui-inputfield, textarea.ui-inputfield, input, select, textarea{
+	width: 280px;
+	max-width: 100%;
+	margin: 0 20px 0 0;
+}
+input[type="file"] {
+	width: 500px;
+	max-width: 100%;
+	margin: 0 10px 0 0;
+}
+input[type="checkbox"]{
+	width: auto;
+	height: 15px;
+	margin-top: 10px;
+}
+input[type="submit"]{
+	width: auto;
+}
+.icePnlGrp select{
+	border-radius: 5px;
+	padding: 6px 5px 6px 10px !important;
+}
+.iceSelInpDateInput{
+	display: inline;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.ice-linkbutton {
+	border:none;
+}
+.ice-linkbutton > span > span > a {
+	color: #008fb4;
+}
+.ice-linkbutton > span > span > a:hover {
+	color: #005f7a;
+}
+.recuadro {
+	clear:both;
+	border:1px solid #d6eaf1;
+	border-radius: 5px;
+	padding:20px;
+	margin-top: 25px;
+}
+.icePnlPopBody .recuadro {
+	padding:15px;
+	margin-top: 10px;
+}
+.icePnlPopBody .buscador.recuadro {
+	margin-top: 0px;
+}
+
+BOTONES
+.boton {
+	min-width: 50px;
+	float: right;
+}
+.panelBotones  {
+	margin-top: 20px;
+}
+.panelBotones .principal {
+
+}
+.panelBotones input.botonGrande:last-child {
+	float: right;
+}
+.panelBotones .boton {
+	float:left;
+}
+.panelBotones .boton .yui-button {
+	border:none;
+	margin: 0px;
+}
+.panelBotones .boton .yui-button {
+	border:none;
+	margin: 0px;
+}
+.panelBotones .ice-linkbutton {
+	position: relative;
+	top: 6px;
+	left: 10px;
+}
+.yui-button {
+	border:none;
+	margin: 0 0 0 5px;
+}
+.ice-pushbutton .yui-button button, .yui-button button {
+	background: #008fb4;
+	border-radius: 5px;
+	padding: 6px 20px 6px 18px;
+	color: #FFF;
+	text-transform: uppercase;
+}
+.yui-button button.ui-state-hover, .yui-button button.ui-state-active{
+	background: #005f7a;
+	border: none;
+	color: #FFF;
+}
+.secundario .yui-button button{
+	background: #cce5ed;
+	color: #008fb4;
+}
+.secundario .yui-button button.ui-state-hover, .secundario .yui-button button.ui-state-active{
+	background: #addbe7;
+}
+button.ui-button { 
+	/*Boton-link de exportar a planilla*/
+	color: #1C639B;
+	text-decoration: underline !important;
+	float: right;
+}
+button.ui-button.ui-state-hover{
+	color: #666;
+}
+.ui-button{
+	border:none;
+	margin: 0 0 0 5px;
+}
+.funcionalidadesResultado button.ui-button{
+	margin-top:10px;
+}
+.ui-button-text-only .ui-button-text {
+	padding: 0;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: Arial,sans-serif;
+	font-size: 1em;
+}
+.iconoTabla button, input.iconoTabla, .ui-datepicker-trigger {
+	height: 32px;
+	width: 32px;
+	/*border-radius: 16px;*/
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 25px;
+	padding: 0;
+	background-color: #1C639B;
+	margin-right: 10px;
+}
+.iconoTabla button.ui-state-hover, input.iconoTabla:hover, .ui-datepicker-trigger:hover, .iconoTabla button.ui-state-active {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 25px;
+	background-color: #444;
+}
+input.iconoTabla, .ui-datepicker-trigger {
+	background-color: #1C639B;
+	border: none;
+	margin:0;
+}
+input.iconoTabla:hover, .ui-datepicker-trigger:hover {
+	background-color: #444;
+}
+.iconoTabla  .ui-button{
+	margin:0;
+}
+
+.botonAdjuntar button, input.botonAdjuntar {
+	background-image: url("../img/adjuntar.png") !important;
+}
+.secundario.botonAdjuntar button, input.secundario.botonAdjuntar {
+	background-image: url("../img/adjuntar-sec.png") !important;
+}
+.botonAgregar button, input.botonAgregar {
+	background-image: url("../img/agregar.png") !important;
+}
+.secundario.botonAgregar button, input.secundario.botonAgregar {
+	background-image: url("../img/agregar-sec.png") !important;
+}
+.botonActualizar button, input.botonActualizar {
+	background-image: url("../img/ico-btn-02.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+}
+.botonAgregar button, input.botonAgregar {
+	background-image: url("../img/ico-mas.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	margin-left: -28px;
+	margin-bottom: 18px;
+	background-color: #1C639B;
+
+}
+.botonBuscar button, input.botonBuscar {
+	background-image: url("../img/ico-btn-04.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	margin-left: -28px;
+	background-color: #1C639B;
+
+}
+.botonRestaurar button, input.botonRestaurar {
+	background-image: url("../img/ico-btn-01.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+
+}
+.botonBorrar button, input.botonBorrar {
+	background-image: url("../img/ico-btn-03.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+
+}
+.botonActivar button, input.botonActivar {
+	background-image: url("../img/ico-activar.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+}
+.botonDesactivar button, input.botonDesactivar {
+	background-image: url("../img/ico-eliminar.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+}
+.botonGuardar button, input.botonGuardar {
+	background-image: url("../img/ico-guardar.png") !important;
+	background-repeat: no-repeat;
+	background-position: 10px 6px;
+	padding-left: 35px;
+	background-color: #1C639B;
+}
+
+.botonGrande button, input.botonGrande {
+	background-repeat: no-repeat;
+	background-position: center 10px;
+	background-color: #FFFFFF;
+	width: 180px;
+	height: 130px;
+	font-size: 14px;
+	text-align: center;
+	color: #1c5d91;
+	border: 1px solid #cccbcb;
+	padding-top: 100px;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+.botonGrande button:hover, input.botonGrande:hover {
+	background-color: #FFFFFF;
+	border: 1px solid #1c5d91;
+	color: #1c5d91;
+	background-position: center 10px;
+}
+.botonGrande.imprimir button, input.botonGrande.imprimir {
+	background-image: url("../img/imprimir.png");
+}
+.botonGrande.mail button, input.botonGrande.mail {
+	background-image: url("../img/mail.png");
+}
+
+.botonBorrar button:hover, input.botonBorrar:hover, .botonGuardar button:hover, input.botonGuardar:hover, .botonDesactivar button:hover, input.botonDesactivar:hover, .botonActivar button:hover, input.botonActivar:hover, .botonAgregar button:hover, input.botonAgregar:hover, .botonBuscar button:hover, input.botonBuscar:hover, .botonActualizar button:hover, input.botonActualizar:hover, .botonRestaurar button:hover, input.botonRestaurar:hover {
+	background-color:#444;
+}
+.secundario.botonBuscar button, input.secundario.botonBuscar {
+	background-image: url("../img/buscar-sec.png") !important;
+}
+.botonContinuar button, input.botonContinuar {
+	background-image: url("../img/continuar.png") !important;
+}
+.secundario.botonContinuar button, input.secundario.botonContinuar {
+	background-image: url("../img/continuar-sec.png") !important;
+}
+.botonDescargar button, input.botonDescargar {
+	background-image: url("../img/descargar.png") !important;
+}
+.secundario.botonDescargar button, input.secundario.botonDescargar {
+	background-image: url("../img/descargar-sec.png") !important;
+}
+.botonEditar button, input.botonEditar{
+	background-image: url("../img/editar.png") !important;
+}
+.secundario.botonEditar button, input.secundario.botonEditar{
+	background-image: url("../img/editar-sec.png") !important;
+}
+.botonMail button, input.botonMail{
+	background-image: url("../img/mailIcono.png") !important;
+}
+.botonEliminar button, input.botonEliminar{ 
+	background-image: url("../img/eliminar.png") !important;
+}
+.secundario.botonEliminar button, input.secundario.botonEliminar{ 
+	background-image: url("../img/eliminar-sec.png") !important;
+}
+.botonEnviar button, input.botonEnviar {
+	background-image: url("../img/enviar.png") !important;
+}
+.secundario.botonEnviar button, input.secundario.botonEnviar {
+	background-image: url("../img/enviar-sec.png") !important;
+}
+.botonFecha  button, input.botonFecha {
+	background-image: url("../img/fecha.png") !important;
+}
+.secundario.botonFecha  button, input.secundario.botonFecha {
+	background-image: url("../img/fecha-sec.png") !important;
+}
+.botonFirmar button, input.botonFirmar {
+	background-image: url("../img/firmar.png") !important;
+}
+.secundario.botonFirmar button, input.secundario.botonFirmar {
+	background-image: url("../img/firmar-sec.png") !important;
+}
+/*.botonGuardar button, input.botonGuardar {
+	background-image: url("../img/guardar.png") !important;
+}
+.secundario.botonGuardar button, input.secundario.botonGuardar {
+	background-image: url("../img/guardar-sec.png") !important;
+}*/
+.botonHistorico button, input.botonHistorico {
+	background-image: url("../img/historico.png") !important;
+}
+.secundario.botonHistorico button, input.secundario.botonHistorico {
+	background-image: url("../img/historico-sec.png") !important;
+}
+.botonImprimir button, input.botonImprimir{
+	background-image: url("../img/imprimirIcono.png") !important;
+}
+.secundario.botonImprimir button, input.secundario.botonImprimir{
+	background-image: url("../img/impirmir-sec.png") !important;
+}
+.botonIniciar button, input.botonIniciar{
+	background-image: url("../img/iniciar.png") !important;
+}
+.secundario.botonIniciar button, input.secundario.botonIniciar{
+	background-image: url("../img/iniciar-sec.png") !important;
+}
+.botonRecibir button, input.botonRecibir{
+	background-image: url("../img/recepcionar.png") !important;
+}
+.secundario.botonRecibir button, input.secundario.botonRecibir{
+	background-image: url("../img/recepcionar-sec.png") !important;
+}
+.botonSeleccionar button, input.botonSeleccionar{
+	background-image: url("../img/seleccionar.png") !important;
+}
+.secundario.botonSeleccionar button, input.secundario.botonSeleccionar{
+	background-image: url("../img/seleccionar-sec.png") !important;
+}
+.botonSubir button, input.botonSubir, .botonSubir{
+	background-image: url("../img/subir.png") !important;
+}
+.secundario.botonSubir button, input.secundario.botonSubir, .secundario.botonSubir{
+	background-image: url("../img/subir-sec.png") !important;
+}
+.botonVer button, input.botonVer{
+	background-image: url("../img/ver.png") !important;
+}
+.secundario.botonVer button, input.secundario.botonVer{
+	background-image: url("../img/ver-sec.png") !important;
+}
+.ui-datatable tbody.ui-datatable-data > tr > td.columnaBoton, .ui-datatable tbody.ui-datatable-data-empty > tr > td.columnaBoton {
+	width: 40px;
+	text-align: center;
+}
+.ice-pushbutton .yui-button button span, .yui-button button span{
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 22px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-size: auto 25px;
+}
+.ice-pushbutton.aceptar .yui-button button, .aceptar .yui-button button{
+	background: #80c41c;
+}
+.aceptar .yui-button button.ui-state-hover, .aceptar .yui-button button.ui-state-active{
+	background: #609315;
+}
+.aceptar span span button span{
+	background-image: url("../img/continuar.png");
+}
+.ice-pushbutton.ayuda .yui-button button, .ayuda .yui-button button{
+	background: #80c41c;
+}
+.ayuda .yui-button button.ui-state-hover, .ayuda .yui-button button.ui-state-active{
+	background: #609315;
+}
+.ayuda span span button span{
+	background-image: url("../img/ayuda.png");
+}
+.actualizar span span button span{
+	background-image: url("../img/recargar.png");
+}
+.secundario.actualizar span span button span{
+	background-image: url("../img/recargar-sec.png");
+}
+.adjuntar span span button span {
+	background-image: url("../img/adjuntar.png");
+}
+.secundario.adjuntar span span button span {
+	background-image: url("../img/adjuntar-sec.png");
+}
+.agregar span span button span {
+	background-image: url("../img/agregar.png");
+}
+.secundario.agregar span span button span {
+	background-image: url("../img/agregar-sec.png");
+}
+.buscar span span button span{
+	background-image: url("../img/buscar.png");
+}
+.secundario.buscar span span button span{
+	background-image: url("../img/buscar-sec.png");
+}
+.continuar span span button span{
+	background-image: url("../img/continuar.png");
+}
+.secundario.continuar span span button span{
+	background-image: url("../img/continuar-sec.png");
+}
+.descargar span span button span{
+	background-image: url("../img/descargar.png");
+}
+.secundario.descargar span span button span{
+	background-image: url("../img/descargar-sec.png");
+}
+.editar span span button span{
+	background-image: url("../img/editar.png");
+	padding-left: 20px !important;
+}
+.secundario.editar span span button span{
+	background-image: url("../img/editar-sec.png");
+	padding-left: 20px !important;
+}
+.eliminar span span button span{
+	background-image: url("../img/eliminar.png");
+}
+.secundario.eliminar span span button span{
+	background-image: url("../img/eliminar-sec.png");
+}
+.enviar span span button span{
+	background-image: url("../img/enviar.png");
+}
+.secundario.enviar span span button span{
+	background-image: url("../img/enviar-sec.png");
+}
+.fecha span span button span{
+	background-image: url("../img/fecha.png");
+}
+.secundario.fecha span span button span{
+	background-image: url("../img/fecha-sec.png");
+}
+.firmar span span button span{
+	background-image: url("../img/firmar.png");
+}
+.secundario.firmar span span button span{
+	background-image: url("../img/firmar-sec.png");
+}
+.guardar span span button span{
+	background-image: url("../img/guardar.png");
+	padding-left: 25px !important;
+}
+.secundario.guardar span span button span{
+	background-image: url("../img/guardar-sec.png");
+	padding-left: 25px !important;
+}
+.historico span span button span{
+	background-image: url("../img/historico.png");
+}
+.secundario.historico span span button span{
+	background-image: url("../img/historico-sec.png");
+}
+.imprimir span span button span{
+	background-image: url("../img/imprimir.png");
+}
+.secundario.imprimir span span button span{
+	background-image: url("../img/imprimir-sec.png");
+}
+.iniciar span span button span{
+	background-image: url("../img/iniciar.png");
+}
+.secundario.iniciar span span button span{
+	background-image: url("../img/iniciar-sec.png");
+}
+.ice-pushbutton.rechazar .yui-button button, .rechazar .yui-button button{
+	background: #ff0000;
+}
+.rechazar .yui-button button.ui-state-hover, .rechazar .yui-button button.ui-state-active{
+	background: #bf0000;
+}
+.rechazar span span button span{
+	background-image: url("../img/eliminar.png");
+}
+.recibir span span button span{
+	background-image: url("../img/recepcionar.png");
+}
+.secundario.recibir span span button span{
+	background-image: url("../img/recepcionar-sec.png");
+}
+.resolver span span button span{
+	background-image: url("../img/recargar.png");
+}
+.secundario.resolver span span button span{
+	background-image: url("../img/recargar-sec.png");
+}
+.seleccionar span span button span{
+	background-image: url("../img/seleccionar.png");
+}
+.secundario.seleccionar span span button span{
+	background-image: url("../img/seleccionar-sec.png");
+}
+.subir span span button span{
+	background-image: url("../img/subir.png");
+}
+.secundario.subir span span button span{
+	background-image: url("../img/subir-sec.png");
+}
+.ver span span button span{
+	background-image: url("../img/ver.png");
+}
+.secundario.ver span span button span{
+	background-image: url("../img/ver-sec.png");
+}
+input.boton.principal{
+	padding: 6px 20px 6px 40px;
+	color: #FFF;
+	text-transform: uppercase;
+	background-color: #008fb4;
+	background-repeat: no-repeat;
+	background-position: 18px center;
+	background-size: auto 25px;
+	border-radius: 5px;
+	border: none;
+	width: auto;
+}
+input.boton.principal:hover{
+	background-color: #005f7a;
+}
+input.boton.secundario{
+	background-color: #cce5ed;
+	color: #008fb4;
+	padding: 6px 20px 6px 40px;
+	text-transform: uppercase;
+	background-repeat: no-repeat;
+	background-position: 18px center;
+	background-size: auto 25px;
+	border-radius: 5px;
+	border: none;
+	width: auto;
+}
+input.boton.secundario:hover{
+	background-color: #addbe7;
+}
+input.ingresar{
+	background-image: url("../img/ingresar.png");
+}
+input.subir{
+	background-image: url("../img/subir.png");
+}
+.botonInicioEmpresasIndustriales{
+	margin:auto;
+	width: 140px;
+}
+.botonInicioEmpresasIndustriales button{
+	width: 125px;
+	height: 125px;
+	border-radius:70px;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-industrial.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0;
+	box-shadow: 0 0 5px -1px #666;
+	margin: 5px;
+}
+.botonInicioEmpresasIndustriales button.ui-state-hover, .botonInicioEmpresasIndustriales button.ui-state-active {
+	background-color: #005f7a;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-industrial.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.botonInicioEmpresasVestimenta{
+	margin:auto;
+	width: 140px;
+}
+.botonInicioEmpresasVestimenta button{
+	width: 125px;
+	height: 125px;
+	border-radius:70px;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-vestimenta.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0;
+	box-shadow: 0 0 5px -1px #666;
+	margin: 5px;
+}
+.botonInicioEmpresasVestimenta button.ui-state-hover, .botonInicioEmpresasVestimenta button.ui-state-active {
+	background-color: #005f7a;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-vestimenta.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.botonInicioTrabajadoresVestimenta{
+	margin:auto;
+	width: 140px;
+}
+.botonInicioTrabajadoresVestimenta button{
+	width: 125px;
+	height: 125px;
+	border-radius:70px;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-trabajador.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0;
+	box-shadow: 0 0 5px -1px #666;
+	margin: 5px;
+}
+.botonInicioTrabajadoresVestimenta button.ui-state-hover, .botonInicioTrabajadoresVestimenta button.ui-state-active {
+	background-color: #005f7a;
+	border: 5px solid #FFF;
+	background-image: url("../img/img-trabajador.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+TABS
+.ui-tabset {
+	padding: 0;
+	border: none;
+	background: none;
+	box-shadow: none;
+	clear: both;
+}
+.ui-tabset .ui-tabs-panel {
+	padding: 0;
+	box-shadow: none;
+}
+.ui-tabset .ui-tabs-nav {
+	padding: 0px;
+	margin-bottom: 30px;
+}
+.ui-tabset .ui-tabs-nav li{
+	background-repeat:no-repeat;
+	background-position: left center;
+	padding-left: 45px;
+	margin-right: 35px;
+}
+TABS DESHABILITADAS
+.ui-tabset .ui-tabs-nav li.ui-state-disabled{
+	opacity: 0.50;
+}
+
+/*nth solo funciona en ie del 9 en adelante
+.ui-tabset .ui-tabs-nav li.ui-state-disabled:nth-child(1){
+	background-image: url("../img/paso1-des.png");
+}*/
+.ui-tabset .ui-tabs-nav li.ui-state-disabled:nth-child(2){
+	background-image: url("../img/paso2-des.png");
+}
+.ui-tabset .ui-tabs-nav li.ui-state-disabled:nth-child(3){
+	background-image: url("../img/paso3-des.png");
+}
+.ui-tabset .ui-tabs-nav li.ui-state-disabled:nth-child(4){
+	background-image: url("../img/paso4-des.png");
+}
+.ui-tabset .ui-tabs-nav li.ui-state-disabled:nth-child(5){
+	background-image: url("../img/paso5-des.png");
+}
+.ui-tabset .ui-tabs-nav .ui-state-disabled div em {
+	padding: 0.5em 0;
+	font-size: 1.1em;
+	font-weight: bold;
+	color:#2a2f35;
+}
+TABS HABILITADAS
+.ui-tabset .ui-tabs-nav li:nth-child(1){
+	background-image: url("../img/paso1.png");
+}
+.ui-tabset .ui-tabs-nav li:nth-child(2){
+	background-image: url("../img/paso2.png");
+}
+.ui-tabset .ui-tabs-nav li:nth-child(3){
+	background-image: url("../img/paso3.png");
+}
+.ui-tabset .ui-tabs-nav li:nth-child(4){
+	background-image: url("../img/paso4.png");
+}
+.ui-tabset .ui-tabs-nav li:nth-child(5){
+	background-image: url("../img/paso5.png");
+}
+.ui-tabset .ui-tabs-nav .ui-state-active div em {
+	padding: 0.5em 0;
+	font-size: 1.1em;
+	font-weight: bold;
+	color:#005f7a;
+	border: none;
+	background: none;
+}
+
+TABLAS
+/*.ui-datatable {
+	margin-top: 20px;
+	display: block; para tabla dentro de popups
+}*/
+.ui-datatable-data.ui-widget-content {
+	border: none;
+	box-shadow: none;
+}
+.ui-datatable tbody.ui-datatable-data > tr > td, .ui-datatable tbody.ui-datatable-data-empty > tr > td {
+	border:none;
+	border: 1px solid #ccc;
+	padding: 10px 10px;
+	text-align: left;
+	height: 40px;
+	color: #666666;
+	font-size: 14px;
+}
+.ui-datatable-data tr:hover {
+	background-color: #DFEFF4 !important;
+}
+.ui-widget-header {
+	border: none;
+	background: none;
+	color: #4b5159;
+	font-weight: normal;
+}
+.ui-datatable th, .ui-datatable tfoot td {
+	text-align: center;
+	height: 40px;
+	border: 1px solid #CCCCCC;
+}
+.ui-state-default .ui-icon {
+	background-image: url("../img/ui-icons_ffffff_256x240.png");
+}
+.ui-paginator-next .ui-icon, .ui-paginator-previous .ui-icon, .ui-paginator-first .ui-icon, .ui-paginator-last .ui-icon {
+	height: 16px;
+	width: 18px;
+}
+.ui-datatable .ui-paginator {
+	margin: 20px 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	width: auto;
+	float: left;
+}
+.ui-datatable .ui-paginator .ui-state-default{
+	border-left: 1px solid #ccc;
+	padding: 5px 8px;
+	color:#1C639B;
+	border-radius: 0px;
+	margin: 0;
+}
+.ui-datatable .ui-paginator .ui-state-default.ui-state-active{
+	background: none;
+	color:#333333;
+	font-weight: bold;
+}
+.ui-datatable .ui-paginator a.ui-state-default {
+	padding:10px;
+	margin:-4px -2px -2px -0px;
+}
+.ui-datatable .ui-paginator a.ui-state-default:hover {
+	background: #ccc;
+}
+.ui-datatable .ui-paginator .ui-state-default.ui-state-disabled {
+	background: #ccc;
+	padding:10px;
+	border:none;
+	border-right:1px solid #ccc;
+	margin:-2px 0 -2px -2px;
+}
+.ui-datatable .ui-paginator .ui-state-default.ui-state-disabled:hover {
+	background: #ccc;
+}
+.cantidadResultados {
+	float: left;
+}
+
+CHECKBOX
+.ice-checkboxbutton .yui-button {
+	margin:0;
+}
+.ice-checkboxbutton .yui-button > span > button{
+	background: #FFF;
+	padding: 0;
+	border: 1px solid #b7b9bd;
+	border: 1px solid #99d2e1;
+}
+.ice-checkboxbutton .yui-button > span > button:hover{
+	background: #cce5ed;
+}
+.ice-checkboxbutton .yui-button > span > button span{
+	width: 20px;
+	height: 20px;
+	padding:0;
+}
+/*.ui-icon-check{cambiar por el checked
+	background: url("../img/check.png") no-repeat center center !important;
+}*/
+
+MENSAJES
+.ui-faces-messages{
+	margin: 0;
+	clear: both;
+}
+.ui-faces-messages .ui-icon {
+	height: 33px;
+	width: 36px;
+	margin: -8px 9px 0 0;
+}
+.ui-faces-message{
+	margin: 0;
+	clear: both;
+}
+.ui-faces-message .ui-icon {
+	height: 33px;
+	width: 36px;
+	margin: -8px 9px 0 0;
+}
+
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+	background: none;
+	color: #ff0000;
+	overflow: hidden;
+	padding: 20px 15px 12px 15px;
+	border:none;
+}
+.ui-icon-alert{
+	background: url("../img/mens-error.png") no-repeat left center !important;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+	background: none;
+	color: #666;
+	overflow: hidden;
+	padding: 20px 15px 12px 15px;
+	border:none;
+}
+.ui-icon-notice{
+	background: url("../img/mens-ok.png") no-repeat left center !important;
+}
+.ui-icon-info{
+	background: url("../img/mens-adv.png") no-repeat left center !important;
+}
+.ui-faces-messages .ui-corner-all {
+	padding: 10px 0;
+}
+.mensajeConfirmacion {
+	background: url("../img/mens-ok.png") no-repeat 15px 18px;
+	padding: 25px 15px 0 70px;
+	border:1px solid #80c41c;
+	border-radius: 5px;
+	color: #4b5159;
+	font-weight: bold;
+}
+.mensajeConfirmacion span{
+	display:block;
+	margin-bottom:20px;
+}
+.mensajeValidacion {
+	padding: 25px 15px 25 80px;
+	border: 1px solid #80c41c;
+	border-radius: 5px;
+	color: #4b5159;
+	font-weight: bold;
+	width: 400px;
+	max-width: 100%;
+	margin: 40px 180px auto;
+}
+.mensajeValidacion.valido {
+	background: url("../img/valido.png") no-repeat 15px center;
+	border:1px solid #80c41c;
+}
+.mensajeValidacion.invalido {
+	background: url("../img/invalido.png") no-repeat 15px center;
+	border:1px solid #ff0000;
+}
+
+
+POPUP
+.icePnlPop{
+	box-shadow: 0 1px 10px 0px #666;
+	border-radius: 10px;
+}
+.icePnlPop .icePnlPopHdr{
+	background-color: #005f7a;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding:15px 25px;
+}
+.icePnlPop .icePnlPopHdr:nth-child(2){
+	display:none;
+}
+.icePnlPop .icePnlPopHdr span.iceOutTxt {
+	color: #FFFFFF;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.botonCerrar {
+	background-image: url("../img/eliminar.png");
+	background-repeat: no-repeat;
+	background-position: center !important;
+	border: none;
+	background-size: auto 35px;
+	background-color: transparent;
+	float: right;
+	width: 30px;
+	padding: 0;
+	margin:0;
+	height:21px;
+}
+.botonCerrar:hover, .botonCerrar:active {
+	background-image: url("../img/eliminar.png");
+	background-repeat: no-repeat;
+	background-position: center !important;
+	background-size: auto 35px;
+	background-color: transparent;
+}
+.icePnlPopBody {
+	background-color: #FFFFFF;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 25px 25px;
+}
+.icePnlPopBody .ui-datatable {
+	margin-top: 0px;
+}
+.icePnlPopBody .ui-datatable .ui-paginator {
+	margin: 5px auto;
+}
+.icePnlPop.popupAyuda .icePnlPopHdr {
+	background-color: #80c41c;
+}
+.popup{
+	padding:0;
+}
+.popup .ui-dialog-titlebar{
+	background-image: -webkit-linear-gradient(top, #555 0%, #222 100%);
+	background-image: -o-linear-gradient(top, #555 0%, #222 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#555), to(#222));
+	background-image: linear-gradient(to bottom, #555 0%, #222 100%);
+	color: #fff;
+	border-radius: 6px 6px 0 0;
+	line-height: 1px;
+	padding:15px 20px;
+	margin-bottom: 25px;
+}
+
+
+PIE
+#bottom {
+	background-color: #005f7a;
+	padding: 10px;
+	color: #FFF;
+	background-image: url(../img/bottom-fondo.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	min-height: 170px;
+	padding-bottom: 30px;
+	clear: both;
+}
+#bottom  span{
+	display:block;
+	font-size:10px;
+	margin-bottom: 4px;
+}
+span#footer_dir_name{
+	font-size: 16px;
+	font-weight: bold;
+}
+#footer_dir_mail a{
+	color: #FFFFFF;
+}
+#footer_dir_mail a:hover{
+	text-decoration: underline;
+}
+#bottom .container{
+	margin-bottom: 0;
+}
+#bottom .container:after{
+	width: 100%;
+	height:0;
+	display:block;
+	clear:both;
+}
+
+
+POPUP DE ESTADO
+.ice-status-indicator input{
+	padding: 6px 20px 6px 40px;
+	color: #FFF;
+	text-transform: uppercase;
+	background-color: #008fb4;
+	background-image: url(../img/recargar.png);
+	background-repeat: no-repeat;
+	background-position: 18px center;
+	background-size: auto 25px;
+	border-radius: 5px;
+	border: none;
+	width: auto;
+	margin:0;
+}
+.ice-status-indicator input:hover{
+	background-color: #005f7a;
+}
+
+
+@media (max-width: 767px) {
+  .logo{
+    margin: auto;
+  }
+  h1{
+	margin-top: 5px;
+	text-align: right;
+  }
+}
+
+.camposBusqueda{
+	width: 50%;
+}
+
+.floatRight{
+	float: right;
+}
+
+.floatLeft{
+	float: left;
+}
+
+.panelBusqueda .btn.btn-primary{
+	margin-top:-10px;
+}
+.panelBusqueda{
+	margin-bottom: 20px;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+.panelBusqueda label{
+margin-right:0px;
+}
+
+.panelLinea{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.cabezalPagina {
+	background-image: -webkit-linear-gradient(top, #555 0%, #222 100%);
+	background-image: -o-linear-gradient(top, #555 0%, #222 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#555), to(#222));
+	background-image: linear-gradient(to bottom, #555 0%, #222 100%);
+	color: #fff;
+	border-radius: 6px 6px 0 0;
+	line-height: 1px;
+	padding:15px 20px;
+	margin-bottom: 25px;
+}
+.ui-datatable thead {
+	vertical-align: center;
+	background-color: #E5E5E5;
+	font-size:14px;
+}
+.cabezalPagina h2{
+	float:left;
+	font-size:16px;
+	margin:0;
+}
+.breadcrumb {
+	padding: 8px 0px;
+	list-style: none;
+	float: right;
+	margin:0;
+	background-color:transparent;
+	border-radius:0px;
+}
+.btn-primary {
+background-image: -webkit-linear-gradient(top, #0082CC 0%, #0047CC 100%);
+background-image: -o-linear-gradient(top, #0082CC 0%, #0047CC 100%);
+background-image: -webkit-gradient(linear, left top, left bottom, from(#0082CC), to(#0047CC));
+background-image: linear-gradient(to bottom, #0082CC 0%, #0047CC 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+background-repeat: repeat-x;
+border-color: #2b669a;
+text-shadow:none;
+}
+.btn-primary:hover, .btn-primary:focus {
+background-color: 13619F;
+background-position: 10px 6px;
+}
+.wijmo-wijmenu-text {
+	color: #555555;
+	display:block;
+	padding:0px;
+}
+.wijmo-wijmenu .wijmo-wijmenu-link {
+	display: block;
+	width: 100%;
+	outline: none;
+	text-decoration: none;
+	padding:5px 0 5px 5px;
+	margin:3px 0;
+	border:none;
+ }
+.wijmo-wijmenu a.ui-state-hover:link, .wijmo-wijmenu a.ui-state-hover:hover, .wijmo-wijmenu a.ui-state-hover:active{
+	color:#fff;
+	background-color:#ccc;
+	border-radius:0px;
+	border:none;
+}
+.wijmo-wijmenu .wijmo-wijmenu-list .ui-widget-header {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin: 5px 0 0 0;
+}
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: normal;
+	margin-right: 25px;
+}
+.ui-datatable-odd {
+background-color: #F5F5F5 !important;
+}
+.row label{
+margin-right: 0px;
+}
+input[class*="iconoTabla"]{
+	border: none;
+	background-color: transparent;
+	padding: 0px;
+	padding-top:25px;
+	float: left;
+	width: 25px;
+	height: 25px;
+	background-position:center;
+	background-repeat: no-repeat;
+	box-sizing:border-box;
+	/*margin:0px 5px;*/
+	margin-right: 8px;
+	background-color: #1C639B;
+}
+input.iconoTablaRestaurar {
+	background-image: url(../img/icono-08.png);
+}
+input.iconoTablaRestaurar:hover {
+	background-image: url(../img/icono-08.png);
+	background-position: top right;
+}
+input.iconoTablaActivar {
+	background-image: url(../img/icono-activar.png);
+}
+input.iconoTablaActivar:hover {
+	background-image: url(../img/icono-activar.png);
+	background-position: top right;
+}
+input.iconoTablaActivarTick {
+	background-image: url(../img/icono-activar.png);
+}
+input.iconoTablaDesactivarTick{
+	background-image: url(../img/icono-activar.png);
+	background-position: top right;
+}
+
+input.iconoTablaDesactivar {
+	background-image: url(../img/ico-desactivar.png);
+}
+input.iconoTablaDesactivar:hover {
+	background-image: url(../img/ico-desactivar.png);
+	background-position: top right;
+}
+input.iconoTablaConfiguar {
+	background-image: url(../img/ico-config.png);
+}
+input.iconoTablaConfiguar:hover {
+	background-image: url(../img/ico-config.png);
+	background-position: top right;
+}
+input.iconoTablaEditar {
+	background-image: url(../img/icono-01.png);
+}
+input.iconoTablaEditar:hover {
+	background-image: url(../img/icono-01.png);
+	background-position: top right;
+}
+input.iconoTablaVer {
+	background-image: url(../img/icono-07.png);
+}
+input.iconoTablaVer:hover {
+	background-image: url(../img/icono-07.png);
+	background-position: top right;
+}
+input.iconoTablaBorrar {
+	background-image: url(../img/icono-06.png);
+}
+input.iconoTablaBorrar:hover {
+	background-image: url(../img/icono-06.png);
+	background-position: top right;
+}
+
+.colTablaAcciones-3{
+	width: 98px;
+}
+.colTablaAcciones-4{
+	width: 122px;
+}
+.hiddenElem{
+	display: none;
+}
+caption{
+	display: none;
+}
+
+.rowMarginTop{
+	margin-top: 16px;
+}
+.rowMarginBottom{
+	margin-bottom: 16px;
+}
+
+.obligatorio:after {
+	content: " *";
+	color:#13619f;
+	font-size:18px;
+	line-height: 21px;
+	white-space: nowrap;
+}
+
+.userLoginMenu{
+	margin-top: 13px;
+}
+.tableText{
+	word-break: break-all;
+}
+.form-control{
+	max-width: 400px;
+}
+span.form-group {
+	display: block;
+}
+.iceSelInpDateClosePopup, .iceSelInpDateClosePopup:hover, .iceSelInpDateClosePopup:active, .iceSelInpDateClosePopup:focus, .iceSelInpDateOpenPopup, .iceSelInpDateOpenPopup:hover, .iceSelInpDateOpenPopup:active, .iceSelInpDateOpenPopup:focus{
+    display: inline;
+	text-decoration: none;
+	background-color: transparent;
+	background-image: url(../img/fecha.png);
+	background-repeat: no-repeat;
+	text-align: center;
+	border: none;
+	width: 40px;
+	height: 34px;
+	vertical-align: middle;
+	background-position: center;
+	background-color: #1C639B;
+	background-size: 20px;
+}
+.iceSelInpDateClosePopup:hover, .iceSelInpDateClosePopup:active, .iceSelInpDateClosePopup:focus, .iceSelInpDateOpenPopup:hover, .iceSelInpDateOpenPopup:active, .iceSelInpDateOpenPopup:focus{
+	background-color: #444;
+}
+.iceSelInpDate, .iceSelInpDate table{
+	margin: 0;
+	background: #ffffff;
+}
+.iceSelInpDate td{
+	padding: 5px;
+}
+.iceGphImg{
+	background-image: url(../img/ui-icons_222222_256x240.png);
+}
+.iceSelInpDateMovePrev{
+	background-position: -80px -192px;
+}
+.iceSelInpDateMoveNext {
+background-position: -48px -192px;
+}
+.centrado {
+text-align:center;
+}

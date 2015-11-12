@@ -1,0 +1,24 @@
+/* Effective stylesheet produced by snapshot save */
+.ui-widget { font-family: Arial,sans-serif; font-size: 1.1em; }
+.ui-widget .ui-widget { font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Arial,sans-serif; font-size: 1em; }
+.ui-widget-content { border: 1px solid rgb(170, 170, 170); background: url("ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% padding-box rgb(255, 255, 255); color: rgb(34, 34, 34); }
+.ui-widget-content a { color: rgb(34, 34, 34); }
+.ui-widget-header { border: 1px solid rgb(170, 170, 170); background: url("ui-default.png") repeat-x scroll 0px 0px padding-box rgb(216, 216, 216); color: rgb(0, 0, 0); font-weight: bold; }
+.ui-widget-header a { color: rgb(34, 34, 34); }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid rgb(211, 211, 211); background: url("ui-default.png") repeat-x scroll 0px 0px padding-box rgb(216, 216, 216); font-weight: normal; color: rgb(0, 0, 0); }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: rgb(85, 85, 85); text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-state-active em { border: 1px solid rgb(170, 170, 170); background: url("sprite.png") repeat-x scroll left -1400px padding-box rgb(38, 71, 160); font-weight: normal; color: rgb(255, 255, 255); }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: rgb(255, 255, 255); text-decoration: none; }
+.ui-widget:active { outline: medium none; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: 0.35; background-image: none; }
+.ui-icon { width: 16px; height: 16px; background-image: url("ui-icons_222222_256x240.png"); }
+.ui-widget-content .ui-icon { background-image: url("ui-icons_222222_256x240.png"); }
+.ui-widget-header .ui-icon { background-image: url("ui-icons_222222_256x240.png"); }
+.ui-state-default .ui-icon { background-image: url("ui-icons_888888_256x240.png"); }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-alert { background-position: 0px -144px; }
+.ui-corner-top { border-top-left-radius: 4px; border-top-right-radius: 4px; }
+.ui-corner-bottom { border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+.ui-corner-all { border-radius: 4px; }
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield { background: none repeat scroll 0% 0% rgb(255, 255, 255); box-shadow: 0px 2px 2px rgb(211, 211, 211) inset; color: rgb(85, 85, 85); }

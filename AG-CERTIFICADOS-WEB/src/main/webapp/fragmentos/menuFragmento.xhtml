@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <ice:panelGroup styleClass="pnlGrpMenu scrollcontainer checkablesupport">
+        <h:form id="form_menu">
+            <ice:panelGroup styleClass="sectionMenu">
+                <h2 id="headerMenu" class="hiddenElem">Menu de navegación</h2>
+                <ace:menu id="menu_principal_form" type="plain" styleClass="nav bs-docs-sidenav">
+                    <ace:submenu id="menu_formularios"
+                                 label="#{labels.form_menu_LBL}">
+                        <ace:menuItem id="menu_form_def" 
+                                      value="#{labels.menu_nuevo_LBL}"
+                                      action="#{menuMB.fireAction('NUEVO')}">
+                            <ace:ajax event="activate" execute="@this"   />
+                        </ace:menuItem>
+                        <ace:menuItem id="menu_form_inst" 
+                                      value="#{labels.menu_listar_LBL}"
+                                      action="#{menuMB.fireAction('LISTAR')}">
+                            <ace:ajax event="activate" execute="@this"   />
+                        </ace:menuItem>
+                        <ace:menuItem id="menu_form_validar_cert" 
+                                      value="#{labels.menu_validar_LBL}"
+                                      action="#{menuMB.fireAction('VALIDAR')}">
+                            <ace:ajax event="activate" execute="@this"   />
+                        </ace:menuItem>
+                    </ace:submenu>
+                </ace:menu>
+
+            </ice:panelGroup>
+
+
+            <ice:panelGroup styleClass="sectionMenu" rendered="#{inicioMB.user.usuAdministrador}">
+                <ace:menu id="menu_principal_seg" type="plain" styleClass="nav bs-docs-sidenav">
+                    <ace:submenu id="menu_seguridad"
+                                 label="#{menu.seguridad_menu_LBL}">
+                        <ace:menuItem id="menu_seg_users" 
+                                      value="#{menu.seguridad_users_LBL}"
+                                      action="#{menuMB.fireAction('LISTADO_USUARIOS')}">
+                            <ace:ajax event="activate" execute="@this"   />
+                        </ace:menuItem>
+                        <!--						<ace:menuItem id="menu_seg_user" 
+                                                                                                  value="Alta Usuario"
+                                                                                                  action="#{menuMB.fireAction('USUARIO')}">
+                                                                                <ace:ajax event="activate" execute="@this"   />
+                                                                        </ace:menuItem>-->
+                        <ace:menuItem id="menu_seg_roles"
+                                      value="#{menu.seguridad_roles_LBL}"
+                                      action="#{menuMB.fireAction('LISTADO_ROLES')}">
+                            <ace:ajax event="activate" execute="@this" />
+                        </ace:menuItem>
+                        <!--						<ace:menuItem id="menu_seg_rol" 
+                                                                                                  value="Alta Rol"
+                                                                                                  action="#{menuMB.fireAction('ROL')}">
+                                                                                <ace:ajax event="activate" execute="@this"   />
+                                                                        </ace:menuItem>-->
+                        <!--						<ace:menuItem id="menu_seg_ops"
+                                                                                                  value="#{menu.seguridad_op_LBL}"
+                                                                                                  action="#{menuMB.fireAction('LISTADO_OPERACIONES')}">
+                                                                                <ace:ajax event="activate" execute="@this"   />
+                                                                        </ace:menuItem>
+                                                                        <ace:menuItem id="menu_seg_op"
+                                                                                                  value="Alta Operación"
+                                                                                                  action="#{menuMB.fireAction('OPERACION')}">
+                                                                                <ace:ajax event="activate" execute="@this"   />
+                                                                        </ace:menuItem>-->
+
+                    </ace:submenu>
+
+                </ace:menu>
+
+            </ice:panelGroup>
+        </h:form>	
+    </ice:panelGroup>
+</ui:composition>

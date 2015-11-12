@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://dalmata.ed-libertad.asse:8080/AfiliadosWeb/services/msp/consulta?wsdl" uri="wsdl/dalmata.ed-libertad.asse_8080/AfiliadosWeb/services/msp/consulta.wsdl"/>
+    <system systemId="http://localhost:8080/AgesicFirmaWS/AgesicFirmaServer?wsdl" uri="wsdl/localhost_8080/AgesicFirmaWS/AgesicFirmaServer.wsdl"/>
+    <system systemId="http://localhost:8080/AgesicFirmaWS/AgesicFirmaServer?xsd=1" uri="wsdl/localhost_8080/AgesicFirmaWS/AgesicFirmaServer.xsd_1.xsd"/>
+</catalog>

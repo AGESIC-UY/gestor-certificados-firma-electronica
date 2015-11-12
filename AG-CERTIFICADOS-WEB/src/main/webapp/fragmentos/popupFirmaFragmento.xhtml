@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <ace:dialog  id="dialogFirma" rendered="#{nuevoCertificadoMB.popupFirma}" dialogPosition="center center" visible="#{nuevoCertificadoMB.popupFirma}" styleClass="popup" header="FIRMAR EL CERTIFICADO"  widgetVar="firmaDJDialog" closable="false" modal="true" draggable="false" resizable="false" showEffect="clip" hideEffect="fade" >
+        <ice:form id="appletFirmaForm">
+            <script>
+                     
+                function getUserAgent() {
+                    return navigator.userAgent;
+                }
+                function cerrarApplet() {
+                    var buttonId = "appletFirmaForm:cerrarApplet";
+                    var button = document.getElementById(buttonId);
+                    button.click();
+                }
+                function continuarApplet() {
+                    var buttonId = "appletFirmaForm:continuarApplet";
+                    var button = document.getElementById(buttonId);
+                    button.click();
+                }
+            </script>
+            <ice:panelGrid width="100%">
+                <applet id="signApplet1" code="uy.gub.agesic.firma.cliente.applet.SignApplet" width="600" height="400" archive="batik-xml-1.6.jar,batik-dom-1.6.jar,batik-svg-dom-1.6.jar,batik-awt-util-1.6.jar,batik-util-1.6.jar,batik-svggen-1.6.jar, ini4j-0.5.2.jar, icepdf-core-4.3.2.jar, icepdf-viewer-4.3.2.jar, AgesicFirmaApplet-AgesicFirmaApplet-2.0.jar, bcprov-jdk15-1.46.jar, commons-codec-1.2.jar, bcmail-jdk15-1.46.jar,log4j-1.2.14.jar,swing-layout-1.0.3.jar,commons-io-2.1.jar,bcprov-jdk15-1.46.jar,MITyCLibAPI-1.0.4.jar,MITyCLibCert-1.0.4.jar,MITyCLibXADES-1.0.4.jar,MITyCLibTSA-1.0.4.jar,jss-4.2.5.jar,commons-logging-1.1.jar, UserAgentUtils-1.15.jar,itextpdf-5.2.0.jar,bctsp-jdk15-1.46.jar,xmlsec-1.4.2-ADSI-1.0.jar">
+                    <param name="type"  value="application/x-java-applet;jpi-version=1.5.0"/>                                    
+                    <param name="java_arguments"  value="-Xmx128m"/>                                    
+                    <param name="classloader_cache"  value="false"/>                                    
+                    <param name="codebase"  value="#{nuevoCertificadoMB.pathBibliotecasFirma}" />           
+                    <param name="TIPO_DOCUMENTO"  value="pdf"/>
+                    <param name="ID_TRANSACCION" value="#{nuevoCertificadoMB.transaccionId}"/>
+                    <param name="DOCUMENTO_VISIBLE" value="true"/>
+                    <param name="LOCALE" value="es"/>
+                    <param name="USUARIO_DOCUMENTO" value="false"/>
+                    <param name="USUARIO_DOCUMENTO_FIRMADO" value="false"/>
+                    <param name="SHOW_CONTINUE" value="true" />
+                    <param name="SHOW_CLOSE" value="true" />
+                    <param name="AGESIC_FIRMA_WS" value="#{nuevoCertificadoMB.wsdlFirma}" />
+                    <param name="1IMAGE_AGESIC" value=""/>
+                    <param name="1IMAGE_ORG" value=""/>
+                </applet>     
+                <div style="text-align:Center">
+                    <ice:commandButton visible="false" id="cerrarApplet" value="CERRAR" styleClass="boton" action="#{nuevoCertificadoMB.cancelarFirmaApplet}" />
+                    <ice:commandButton visible="false" id="continuarApplet" value="CONTINUAR" styleClass="boton" action="#{nuevoCertificadoMB.continuarFirmaApplet}" />
+                </div>
+            </ice:panelGrid>
+        </ice:form>
+    </ace:dialog>
+</ui:composition>

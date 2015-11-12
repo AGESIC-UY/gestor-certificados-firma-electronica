@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:icecore="http://www.icefaces.org/icefaces/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    <h:form id="form_gen">
+        <ice:panelGroup id="paneContenidoNuevo" rendered="#{not nuevoCertificadoMB.accionesPosteriores}">
+            <ice:panelGroup  id="pnlGrpBuqueda">
+                <ice:panelGroup id="cabezalPagina" styleClass="cabezalPagina row">
+                    <h2 id="tituloPagina">Buscar Certificados</h2>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            <ice:panelGroup styleClass="form-horizontal" style="margin-top: 10px">
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel for="ordenSelectOrden" styleClass="control-label col-sm-3" value="#{labels.tipoCertificadoSeleccion}"/>
+                    <ice:panelGroup styleClass="col-sm-6">
+                        <ice:selectOneMenu id="ordenSelectOrden" styleClass="form-control" partialSubmit="true"  value="#{listartCertificadoMB.tipoCertificadoSelected}"  >
+                            <f:selectItems value="#{inicioMB.tipoCertificadosSI}"/>
+                        </ice:selectOneMenu>
+                    </ice:panelGroup>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel  styleClass="control-label col-sm-3" value="Campo de Búsqueda"/>
+                    <ice:panelGroup styleClass="col-sm-6">
+                        <ice:inputText value="#{listartCertificadoMB.campoBusqueda}"/>
+                    </ice:panelGroup>
+                </ice:panelGroup>
+                
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel  styleClass="control-label col-sm-3" value="Fecha Desde"/>
+                    <ice:panelGroup styleClass="col-sm-6">
+                        <ice:selectInputDate renderAsPopup="true" value="#{listartCertificadoMB.fechaDesde}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Montevideo"/>
+                        </ice:selectInputDate>
+                                             
+                    </ice:panelGroup>
+                </ice:panelGroup>
+                
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel  styleClass="control-label col-sm-3" value="Fecha Hasta"/>
+                    <ice:panelGroup styleClass="col-sm-6">
+                        <ice:selectInputDate renderAsPopup="true" value="#{listartCertificadoMB.fechaHasta}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Montevideo"/>
+                        </ice:selectInputDate>
+                    </ice:panelGroup>
+                </ice:panelGroup>
+                
+                <ice:panelGroup styleClass="form-group">
+                    <h:outputLabel  styleClass="control-label col-sm-3" value="Usuario"/>
+                    <ice:panelGroup styleClass="col-sm-6">
+                        <ice:inputText value="#{listartCertificadoMB.usuarioBusqueda}"/>
+                    </ice:panelGroup>
+                    <ice:panelGroup styleClass="col-sm-3">
+                        <h:commandButton action="#{listartCertificadoMB.buscar()}"  styleClass="btn btn-primary botonBuscar" value="#{labels.buscar}"/>
+                    </ice:panelGroup>
+                </ice:panelGroup>
+
+            </ice:panelGroup>
+            <ice:panelGroup id="formularioDatos">
+                <ace:dataTable value="#{listartCertificadoMB.certificados}" var="cert">
+                    <ace:column id="colId" headerText="Tipo">
+                        <h:outputText id="tipoCert" value="#{cert.certPluginNombre}"/>
+                    </ace:column>
+                    <ace:column id="colFecha" headerText="Fecha">
+                        <h:outputText id="vaColFecha" value="#{cert.certDate}"/>
+                    </ace:column>
+                    <ace:column id="colCampoBusqueda" headerText="Campo Búsqueda">
+                        <h:outputText id="vaColCampoBusqueda" value="#{cert.campoBusqueda}"/>
+                    </ace:column>
+
+                    <ace:column id="colAcciones" headerText="Acciones">
+                        <!-- h:commandButton action=" # {listartCertificadoMB.enviarPorEmail(cert)}"  styleClass="iconoTabla btn btn-primary botonMail" value=""/ -->
+                        <h:commandButton action="#{listartCertificadoMB.imprimir(cert)}"  styleClass="iconoTabla btn btn-primary botonImprimir" value=""/>
+                    </ace:column>
+                </ace:dataTable>
+            </ice:panelGroup>
+        </ice:panelGroup>
+    </h:form>
+
+</ui:composition>
