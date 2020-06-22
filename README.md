@@ -1,4 +1,4 @@
-# Gestor de Certificados
+# Gestor de Certificados de Firma Electrónica [Sin Mantenimiento] 
 El cometido de esta solución permitir de manera fácil y sencilla la emisión de certificados con firma electrónica.
 
 El componente resuelve todo el entorno necesario para la uso de estos certificados. Cuenta con la posibilidad de desarrollos de PLUG-IN's donde se pueden configurar los datos entrantes, procesos de validación, proceso de firma del documento generado, envío del certificados por mail, validación de autenticidad y repositorio con su respectivo proceso de depuración.
